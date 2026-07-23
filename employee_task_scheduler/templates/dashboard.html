@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Employee Task Scheduler{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+  <i class="bi bi-calendar-week" style="font-size:64px;color:var(--blue);display:block;margin-bottom:16px;"></i>
+  <h3>Chào mừng đến với Employee Task Scheduler</h3>
+  <p class="text-muted">Sử dụng menu bên trái để điều hướng.</p>
+  <a href="{{ url_for('lich_trinh') }}" class="btn btn-primary mt-3"><i class="bi bi-calendar-week"></i> Xem lịch trình</a>
+</div>
+{% endblock %}
