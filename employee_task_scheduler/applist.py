@@ -312,6 +312,9 @@ def task_add():
     if not ma_cv or not ten_cv:
         flash("Mã công việc và Tên công việc là bắt buộc.", "danger")
         return redirect(url_for("tasks_page"))
+    if not bo_phan:
+        flash("Vui lòng chọn Bộ phận cho công việc.", "danger")
+        return redirect(url_for("tasks_page"))
     if Task.query.filter_by(ma_cv=ma_cv).first():
         flash(f"Mã công việc '{ma_cv}' đã tồn tại.", "danger")
         return redirect(url_for("tasks_page"))

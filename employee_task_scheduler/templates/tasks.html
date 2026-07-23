@@ -221,8 +221,8 @@
           <div class="mb-2"><label class="form-label">Tiêu đề</label><input class="form-control" name="ten_cv" required></div>
           <div class="mb-2"><label class="form-label">Ghi chú</label><textarea class="form-control" name="ghi_chu" rows="2" placeholder="Nhập ghi chú cho công việc..."></textarea></div>
           <div class="mb-2"><label class="form-label">Ngày</label><input class="form-control" type="date" name="ngay_gio"></div>
-          <div class="mb-2"><label class="form-label">Bộ phận</label>
-            <select class="form-select" name="bo_phan">
+          <div class="mb-2"><label class="form-label">Bộ phận <span style="color:red">*</span></label>
+            <select class="form-select" name="bo_phan" required>
               <option value="">-- Chọn bộ phận --</option>
               {% for bp in vi_tri_map.keys() %}
               <option value="{{ bp }}">{{ bp }}</option>
