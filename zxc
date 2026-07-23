@@ -1,0 +1,58 @@
+import tkinter as tk
+from tkinter import messagebox
+
+def calculate():
+    try:
+        num1 = float(entry_num1.get())
+        num2 = float(entry_num2.get())
+        mode = mode_var.get()
+        
+        if mode == "+":
+            result = num1 + num2
+            label_result.config(text=f"Kết quả: {result}")
+        elif mode == "-":
+            result = num1 - num2
+            label_result.config(text=f"Kết quả: {result}")
+        else:
+            messagebox.showwarning("Cảnh báo", "Vui lòng chọn chế độ cộng hoặc trừ!")
+    except ValueError:
+        messagebox.showerror("Lỗi", "Vui lòng nhập đúng số!")
+
+# Tạo cửa sổ chính
+root = tk.Tk()
+root.title("Máy Tính 2 Chế Độ (Cộng / Trừ)")
+root.geometry("350x300")
+root.resizable(False, False)
+
+# Nhập số thứ nhất
+tk.Label(root, text="Số thứ nhất:", font=("Arial", 11)).pack(pady=(15, 2))
+entry_num1 = tk.Entry(root, font=("Arial", 11), justify="center")
+entry_num1.pack()
+
+# Chọn chế độ (Cộng / Trừ)
+mode_var = tk.StringVar(value="+")
+
+frame_mode = tk.Frame(root)
+frame_mode.pack(pady=10)
+
+rb_add = tk.Radiobutton(frame_mode, text="Chế độ Cộng (+)", variable=mode_var, value="+", font=("Arial", 10, "bold"))
+rb_add.pack(side="left", padx=10)
+
+rb_sub = tk.Radiobutton(frame_mode, text="Chế độ Trừ (-)", variable=mode_var, value="-", font=("Arial", 10, "bold"))
+rb_sub.pack(side="left", padx=10)
+
+# Nhập số thứ hai
+tk.Label(root, text="Số thứ hai:", font=("Arial", 11)).pack(pady=(5, 2))
+entry_num2 = tk.Entry(root, font=("Arial", 11), justify="center")
+entry_num2.pack()
+
+# Nút tính toán
+btn_calc = tk.Button(root, text="TÍNH KẾT QUẢ", font=("Arial", 11, "bold"), bg="#3498db", fg="white", command=calculate)
+btn_calc.pack(pady=15)
+
+# Nhãn hiển thị kết quả
+label_result = tk.Label(root, text="Kết quả: ---", font=("Arial", 12, "bold"), fg="#2c3e50")
+label_result.pack()
+
+# Chạy ứng dụng
+root.mainloop()
